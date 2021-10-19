@@ -1,0 +1,167 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html, body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+
+.div-uno {
+    background: black;
+    width: 15%;
+    float: left;
+    height: 60px;
+    padding-left: 40px;
+    padding-top: 10px;
+}
+.div-uno a {
+    color: white;
+}
+
+.div-dos {
+    /*    background: #11879c;*/
+
+    background: #001727;
+    width: 85%;
+    float: left;
+    height: 60px;
+    padding-left: 40px;
+    padding-top: 10px;
+}
+
+.div-dos a {
+    color: white;
+}
+
+
+
+
+
+.div-tres {
+    background: #001727;
+    background: linear-gradient(180deg, rgba(0,23,39,1) 0%, rgba(17,135,156,1) 95%, rgba(33,116,155,1) 100%);
+    width: 15%;
+    float: left;
+    height: 100%;
+    color: white;
+}
+
+.div-tres a{
+    color: white;
+}
+
+.div-tres li {
+    font-size: 1.08rem;
+}
+
+.div-uno a{
+    font-size: 1.2rem;  
+}
+
+.div-tres .nav-item:hover {
+    /*    background: #17a6bf;
+*/ /*border-radius: 3px;*/
+    margin-right: 15px;
+    margin-left: 15px;
+    border-bottom: 2px solid #21749b;
+}
+
+/*.menu-selecionado {
+    background: #1db6d1;
+    border-radius: 3px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-bottom: #1db6d1
+}
+*/
+
+
+.div-cuatro {
+    width: 85%;
+    float: left;
+    height: 100%;
+    background: white;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+
+
+
+::-webkit-scrollbar {
+    width: 0.5em;
+    background-color: #001727;
+}
+
+::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, rgba(0,23,39,1) 0%, rgba(17,135,156,1) 95%, rgba(33,116,155,1) 100%);
+}
+
+
+
+/*
+::-webkit-scrollbar-thumb {
+    background-color: rgb(17, 135, 156);
+    border-radius: 10px;
+}
+
+*/
+
