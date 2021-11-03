@@ -87,7 +87,10 @@ html, body {
     color: white;
 }
 
-
+.div-dos a:hover {
+    text-decoration: none;
+    border-bottom: 2px solid #21749b;
+}
 
 
 
@@ -98,6 +101,8 @@ html, body {
     float: left;
     height: 100%;
     color: white;
+
+
 }
 
 .div-tres a{
@@ -108,26 +113,31 @@ html, body {
     font-size: 1.08rem;
 }
 
+
+.div-tres .icon {
+    font-size: 1.7rem;
+}
+
 .div-uno a{
     font-size: 1.18rem;  
 }
 
 .div-tres .nav-item:hover {
-       background: #17a6bf;
-border-radius: 3px;
+    /*       background: #17a6bf;
+border-radius: 3px;*/
     margin-right: 15px;
     margin-left: 15px;
-
+    border-bottom: 2px solid #21749b;
 }
 
-.menu-selecionado {
+/*.menu-selecionado {
     background: #1db6d1;
     border-radius: 3px;
     margin-right: 20px;
     margin-left: 20px;
     border-bottom: #1db6d1
 }
-
+*/
 
 
 .div-cuatro {
@@ -145,3 +155,22 @@ body {
 
 
 
+::-webkit-scrollbar {
+    width: 0.5em;
+/*    background-color: #001727; */
+
+}
+
+::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, rgba(0,23,39,1) 0%, rgba(17,135,156,1) 95%, rgba(33,116,155,1) 100%);
+}
+
+
+
+/*
+::-webkit-scrollbar-thumb {
+    background-color: rgb(17, 135, 156);
+    border-radius: 10px;
+}
+
+*/
