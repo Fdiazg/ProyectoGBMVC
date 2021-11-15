@@ -1,0 +1,18 @@
+﻿@model CategoriaCreacionModel
+<h3>Nueva categoria</h3>
+<hr />
+<div class="card">
+    <div class="card-body">
+        <form method="post" asp-controller="Categorias" asp-action="NuevaCategoria">
+            <div class="form-group">
+                <label asp-for="Nombre">Nombre</label>
+                <input asp-for="Nombre" type="text" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-controller="Categorias" asp-action="Index" class="btn btn-secondary">Cancelar</a>
+
+        </form>
+    </div>
+
+</div>

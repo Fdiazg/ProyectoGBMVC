@@ -1,0 +1,12 @@
+﻿@model CategoriaEdicionModel
+<h3>Eliminar categoria</h3>
+<hr />
+<form method="post" asp-controller="Categorias" asp-action="EliminarCategoria">
+    <h5>Está seguro de eliminar la categoría:</h5>
+    <h5>Id: @Model.Id</h5>
+    <h5>Nombre: @Model.Nombre</h5>
+    <input type="hidden" asp-for="Id" />
+    <br />
+    <button type="submit" class="btn btn-danger">Sí</button>
+    <a asp-controller="Categorias" asp-action="Index" class="btn btn-secondary">No</a>
+</form>

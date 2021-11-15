@@ -97,12 +97,11 @@ html, body {
 .div-tres {
     background: #001727;
     background: linear-gradient(180deg, rgba(0,23,39,1) 0%, rgba(17,135,156,1) 95%, rgba(33,116,155,1) 100%);
-    width: 15%;
+    width: 15%; 
     float: left;
     height: 100%;
     color: white;
-
-
+  
 }
 
 .div-tres a{
@@ -150,6 +149,13 @@ border-radius: 3px;*/
 body {
     font-family: 'Montserrat', sans-serif;
 }
+
+
+
+
+
+
+
 
 
 

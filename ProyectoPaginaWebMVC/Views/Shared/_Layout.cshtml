@@ -26,29 +26,41 @@
     <div class="div-tres">
         <ul class="nav flex-column mt-3">
             <li class="nav-item menu-selecionado">
-                <a class="nav-link " href="#"><i class="las la-home icon"></i> Inicio</a>
+                <a class="nav-link " asp-controller="Home" asp-action="Index"><i class="lab la-fort-awesome icon"></i> Inicio</a>
+            </li>
+            @*<li class="nav-item">
+            <a class="nav-link" href="#"><i class="las la-bullseye icon"></i> Competitivos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><i class="las la-glass-cheers icon"></i> Para dos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><i class="las la-puzzle-piece icon"></i> Coperativos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><i class="lab la-fort-awesome icon"></i> Party Games</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><i class="las la-dragon icon"></i> Rol</a>
+        </li>*@
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Home" asp-action="Index"><i class="las la-dice-d6 icon"></i> Juegos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="las la-bullseye icon"></i> Competitivos</a>
+                <a class="nav-link" asp-controller="Categorias" asp-action="Index"><i class="las la-bullseye icon"></i> Categorías</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="las la-glass-cheers icon"></i> Para dos</a>
+                <a class="nav-link"><i class="las la-dragon icon"></i> Mecánicas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="las la-puzzle-piece icon"></i> Coperativos</a>
+                <a class="nav-link" asp-controller="Editoriales" asp-action="Index"><i class="las la-puzzle-piece icon"></i> Editorial</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="lab la-fort-awesome icon"></i> Party Games</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="las la-dragon icon"></i> Rol</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="las la-sitemap icon"></i> Categorías</a>
+                <a class="nav-link"><i class="las la-robot icon"></i> Diseñador</a>
             </li>
         </ul>
     </div>
-    <div class="div-cuatro">
+    <div class="div-cuatro p-4">
         @RenderBody()
     </div>
 
@@ -61,5 +73,11 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
 </body>
 </html>
