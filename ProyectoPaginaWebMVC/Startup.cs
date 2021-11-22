@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProyectoPaginaWebMVC.Helpers;
 using ProyectoPaginaWebMVC.Repositorios;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,10 @@ namespace ProyectoPaginaWebMVC
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<ICategoriasRepository, CategoriasRepository>();
             services.AddScoped<IEditorialesRepository, EditorialesRepository>();
+            services.AddScoped<IDisenadoresRepository, DisenadoresRepository>();
+            services.AddScoped<IAlmacenadorArchivos, AlmacenadorArchivos>();
+            services.AddHttpContextAccessor();
+
 
 
         }

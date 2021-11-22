@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace ProyectoPaginaWebMVC.Models.Entidades
 {
-    public class Categoria
+    public class Disenador
     {
         public int Id { get; set; }
         [Required]
         [MaxLength(255)]
-
         public string Nombre { get; set; }
+        [Required]
+        public DateTime FechaNacimiento { get; set; }
+        [MaxLength(1500)]
+        public string Biografia { get; set; }
+        [MaxLength(255)]
+        public string ImagenUrl { get; set; }
+        [MaxLength(255)]
+        public string SitioWeb { get; set; }
     }
 }

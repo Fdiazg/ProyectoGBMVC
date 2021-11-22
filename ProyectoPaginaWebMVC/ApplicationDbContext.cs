@@ -16,5 +16,6 @@ namespace ProyectoPaginaWebMVC
 
         public DbSet<Categoria> Categorias { get; set; } //La entidad va en singular y la tabla en plural
         public DbSet<Editorial> Editoriales { get; set; }
+        public DbSet<Disenador> Disenadores { get; set; }
     }
 }

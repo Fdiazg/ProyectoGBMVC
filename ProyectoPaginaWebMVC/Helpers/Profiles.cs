@@ -18,6 +18,9 @@ namespace ProyectoPaginaWebMVC.Helpers
             CreateMap<Editorial, EditorialModel>();
             CreateMap<EditorialCreacionModel, Editorial>();
             CreateMap<Editorial, EditorialEdicionModel>();
+            CreateMap<Disenador, DisenadorModel>();
+            CreateMap<DisenadorCreacionModel, Disenador>();
+            CreateMap<Disenador, DisenadorEdicionModel>();
         }
     }
 }

@@ -1,0 +1,46 @@
+﻿@model DisenadorCreacionModel
+<h3>Nuevo Diseñador</h3>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body ">
+                <form method="post" enctype="multipart/form-data" asp-controller="Disenadores" asp-action="Nuevo">
+                    <div class="form-group">
+                        <label asp-for="Nombre"></label>
+                        <input asp-for="Nombre" type="text" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FechaNacimiento">Fecha de nacimiento</label>
+                        <input asp-for="FechaNacimiento" type="date" class="form-control" />
+                        @*<span asp-validation-for="FechaNacimiento" class="text-danger"></span>*@
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Biografia">Biografía</label>
+                        <textarea asp-for="Biografia" rows="5" class="form-control"> </textarea>
+                        <span asp-validation-for="Biografia" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SitioWeb">Página Web</label>
+                        <input asp-for="SitioWeb" type="text" class="form-control" />
+                        <span asp-validation-for="SitioWeb" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Imagen</label>
+                        <input asp-for="Imagen" class="form-control" type="file" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a asp-controller="Disenadores" asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-6">
+
+    </div>
+</div>
+
+
+

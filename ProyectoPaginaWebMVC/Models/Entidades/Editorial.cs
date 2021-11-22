@@ -10,6 +10,8 @@ namespace ProyectoPaginaWebMVC.Models.Entidades
     {
         public int Id { get; set; }
         [Required]
+        [MaxLength(255)]
+
         public string Nombre { get; set; }
     }
 }

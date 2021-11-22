@@ -1,0 +1,60 @@
+﻿@model List<DisenadorModel>
+<div class="row">
+    <div class="col-md-6">
+        <h3>Listado de Diseñadores</h3>
+    </div>
+    <div class="col-md-6">
+        <a asp-controller="Disenadores" asp-action="Nuevo" class="btn btn-primary float-lg-right "><i class="bi bi-plus-circle"></i> Nuevo</a>
+    </div>
+</div>
+<div>
+    <hr />
+    <div class="card">
+        <div class="card-body">
+            @if (Model.Count > 0)
+            {
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th>Página Web</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Nombre</td>
+                            @if (@item.FechaNacimiento != default(DateTime))
+                            {
+                            <td>@item.FechaNacimiento.ToString("dd/MM/yyyy")</td>
+                            }
+                            else 
+                            { 
+                            <td >-</td>
+                            }
+
+                            <td><a href="@item.SitioWeb" target="_blank">@item.SitioWeb</a></td>
+                            <td>
+                                <a asp-route-id="@item.Id" asp-controller="Disenadores" asp-action="Editar" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Editar"><i class="bi bi-pencil-square"></i></a>
+                                <a asp-route-id="@item.Id" asp-controller="Disenadores" asp-action="Eliminar" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="bi bi-trash"></i></a>
+
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <h4>No existen registros</h4>
+            }
+
+
+        </div>
+    </div>
+</div>
