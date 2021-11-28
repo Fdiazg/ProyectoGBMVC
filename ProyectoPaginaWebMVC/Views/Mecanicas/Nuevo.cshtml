@@ -1,0 +1,17 @@
+﻿@model MecanicaCreacionModel
+<h3>Nueva mecánica</h3>
+<div class="card">
+    <div class="card-body">
+        <form method="post" asp-controller="Mecanicas" asp-action="Nuevo">
+            <div class="form-group">
+                <label asp-for="Nombre">Nombre</label>
+                <input asp-for="Nombre" type="text" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-controller="Mecanicas" asp-action="Index" class="btn btn-secondary">Cancelar</a>
+
+        </form>
+    </div>
+
+</div>

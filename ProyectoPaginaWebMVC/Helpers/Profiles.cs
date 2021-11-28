@@ -21,6 +21,9 @@ namespace ProyectoPaginaWebMVC.Helpers
             CreateMap<Disenador, DisenadorModel>();
             CreateMap<DisenadorCreacionModel, Disenador>();
             CreateMap<Disenador, DisenadorEdicionModel>();
+            CreateMap<Mecanica, MecanicaModel>();
+            CreateMap<MecanicaCreacionModel, Mecanica>();
+            CreateMap<Mecanica, MecanicaEdicionModel>();
         }
     }
 }
