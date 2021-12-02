@@ -93,5 +93,13 @@ namespace ProyectoPaginaWebMVC.Controllers
             await _repositorio.Eliminar(model.Id);
             return RedirectToAction("Index");
         }
+
+        public async Task<IActionResult> Jdmdisenador([FromRoute]int id)
+        {
+            var model = await _repositorio.BuscarPorId(id);
+
+            //Buscar en base de datos
+            return View(model);
+        }
     }
 }

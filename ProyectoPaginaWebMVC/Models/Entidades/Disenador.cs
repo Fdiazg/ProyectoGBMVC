@@ -12,13 +12,13 @@ namespace ProyectoPaginaWebMVC.Models.Entidades
         [Required]
         [MaxLength(255)]
         public string Nombre { get; set; }
-        [Required]
         public DateTime FechaNacimiento { get; set; }
         [MaxLength(1500)]
         public string Biografia { get; set; }
-        [MaxLength(255)]
         public string ImagenUrl { get; set; }
         [MaxLength(255)]
         public string SitioWeb { get; set; }
+        public List<JuegoDeMesaDisenador> JuegosDeMesaDisenadores { get; set; }
+
     }
 }

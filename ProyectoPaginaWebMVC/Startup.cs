@@ -36,6 +36,7 @@ namespace ProyectoPaginaWebMVC
             services.AddScoped<IAlmacenadorArchivos, AlmacenadorArchivos>();
             services.AddHttpContextAccessor();
             services.AddScoped<IMecanicasRepository, MecanicasRepository>();
+            services.AddScoped<IJuegosDeMesaRepository, JuegosDeMesaRepository>();
 
 
 

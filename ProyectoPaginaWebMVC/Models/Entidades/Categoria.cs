@@ -13,5 +13,6 @@ namespace ProyectoPaginaWebMVC.Models.Entidades
         [MaxLength(255)]
 
         public string Nombre { get; set; }
+        public List<JuegoDeMesaCategoria> JuegosDeMesaCategorias { get; set; }
     }
 }

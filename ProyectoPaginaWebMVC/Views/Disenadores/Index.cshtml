@@ -31,14 +31,20 @@
                             <td>@item.Nombre</td>
                             @if (@item.FechaNacimiento != default(DateTime))
                             {
-                            <td>@item.FechaNacimiento.ToString("dd/MM/yyyy")</td>
+                                <td>@item.FechaNacimiento.ToString("dd/MM/yyyy")</td>
                             }
-                            else 
-                            { 
-                            <td >-</td>
+                            else
+                            {
+                                <td>-</td>
                             }
-
-                            <td><a href="@item.SitioWeb" target="_blank">@item.SitioWeb</a></td>
+                            @if (item.SitioWeb != null)
+                            {
+                                <td><a href="@item.SitioWeb" target="_blank">@item.SitioWeb</a></td>
+                            }
+                            else
+                            {
+                                <td>-</td>
+                            }
                             <td>
                                 <a asp-route-id="@item.Id" asp-controller="Disenadores" asp-action="Editar" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Editar"><i class="bi bi-pencil-square"></i></a>
                                 <a asp-route-id="@item.Id" asp-controller="Disenadores" asp-action="Eliminar" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="bi bi-trash"></i></a>
