@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ProyectoPaginaWebMVC.Helpers;
 using ProyectoPaginaWebMVC.Models;
 using ProyectoPaginaWebMVC.Repositorios;
@@ -26,12 +27,15 @@ namespace ProyectoPaginaWebMVC.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Nuevo()
         {
             var model = await _repository.NuevoJuegoCreacionModel();
 
             return View(model);
         }
+
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public async Task<IActionResult> Nuevo(JuegoDeMesaCreacionModel model)
         {

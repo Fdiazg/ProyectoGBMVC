@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> _signInManager
+
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" />
@@ -18,46 +21,53 @@
             <a class="navbar-brand" href="#">Juegos de Mesa en tú mesa</a>
         </div>
         <div class="div-dos">
-            <div class="float-right mt-2 mr-5">
-                <a href="#"><i class="bi bi-box-arrow-left"></i> Salir</a>
+            <div class="row ">
+                @if (_signInManager.IsSignedIn(User))
+                {
+                    <div class="mt-2 mr-5">
+                        <h5>Hola, @User.Identity.Name</h5>
+                    </div>
+                }
+                else
+                {
+                    <div class="mt-2 mr-5">
+                        <a asp-controller="Usuarios" asp-action="Registro"><i class="bi bi-person-square"></i> Registro</a>
+                        <a asp-controller="Usuarios" asp-action="Login"><i class="bi bi-box-arrow-right "></i> Login</a>
+                    </div>
+                }
+
+                <div class="text-right mt-2 mr-5 float-right">
+                    <a href="#"><i class="bi bi-box-arrow-left"></i> Salir</a>
+                </div>
             </div>
-            </div>
+
+        </div>
     </header>
     <div class="div-tres">
         <ul class="nav flex-column mt-3">
             <li class="nav-item menu-selecionado">
                 <a class="nav-link " asp-controller="Home" asp-action="Index"><i class="lab la-fort-awesome icon"></i> Inicio</a>
             </li>
-            @*<li class="nav-item">
-            <a class="nav-link" href="#"><i class="las la-bullseye icon"></i> Competitivos</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><i class="las la-glass-cheers icon"></i> Para dos</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><i class="las la-puzzle-piece icon"></i> Coperativos</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><i class="lab la-fort-awesome icon"></i> Party Games</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><i class="las la-dragon icon"></i> Rol</a>
-        </li>*@
+
             <li class="nav-item">
                 <a class="nav-link" asp-controller="JuegosDeMesa" asp-action="Index"><i class="las la-dice-d6 icon"></i> Juegos</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="Categorias" asp-action="Index"><i class="las la-bullseye icon"></i> Categorías</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="Mecanicas" asp-action="Index"  ><i class="las la-dragon icon"></i> Mecánicas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="Editoriales" asp-action="Index"><i class="las la-puzzle-piece icon"></i> Editoriales</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="Disenadores" asp-action="Index" ><i class="las la-robot icon"></i> Diseñadores</a>
-            </li>
+            @if (_signInManager.IsSignedIn(User))
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Categorias" asp-action="Index"><i class="las la-bullseye icon"></i> Categorías</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Mecanicas" asp-action="Index"><i class="las la-dragon icon"></i> Mecánicas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Editoriales" asp-action="Index"><i class="las la-puzzle-piece icon"></i> Editoriales</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Disenadores" asp-action="Index"><i class="las la-robot icon"></i> Diseñadores</a>
+                </li>
+            }
+
         </ul>
     </div>
     <div class="div-cuatro p-4">

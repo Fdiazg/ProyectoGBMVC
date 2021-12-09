@@ -6,7 +6,7 @@
         <form method="post" asp-controller="Editoriales" asp-action="NuevaEditorial">
             <div class="form-group">
                 <label asp-for="Nombre">Nombre</label>
-                <input asp-for="Nombre" type="text" class="form-control" />
+                <input asp-for="Nombre" type="text" class="form-control" autofocus/>
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>

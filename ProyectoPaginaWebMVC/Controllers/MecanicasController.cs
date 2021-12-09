@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ProyectoPaginaWebMVC.Models;
 using ProyectoPaginaWebMVC.Repositorios;
 using System;
@@ -8,6 +9,8 @@ using System.Threading.Tasks;
 
 namespace ProyectoPaginaWebMVC.Controllers
 {
+    [Authorize]
+
     public class MecanicasController : Controller
     {
         private readonly IMecanicasRepository _repository;

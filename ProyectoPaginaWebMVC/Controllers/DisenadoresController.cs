@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ProyectoPaginaWebMVC.Helpers;
 using ProyectoPaginaWebMVC.Models;
 using ProyectoPaginaWebMVC.Repositorios;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoPaginaWebMVC.Controllers
 {
+    [Authorize]
     public class DisenadoresController : Controller
     {
         private readonly IDisenadoresRepository _repositorio;
@@ -63,7 +65,7 @@ namespace ProyectoPaginaWebMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(model.Imagen != null)
+                if(model.Imagen != null  )
                 {
                     await _almacenadorArchivos.EliminarArchivo(model.ImagenUrl, Carpeta);
                     var nuevaUrl = await _almacenadorArchivos.GuardarArchivo(model.Imagen, Carpeta);

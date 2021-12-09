@@ -24,6 +24,7 @@ namespace ProyectoPaginaWebMVC.Models
 
         [MaxLength(255, ErrorMessage = "El campo {0} debe tener como máximo {1} caracteres")]
         public string SitioWeb { get; set; }
+
         public IFormFile Imagen { get; set; }
     }
 }
