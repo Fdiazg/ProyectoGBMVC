@@ -15,7 +15,14 @@
     }
 
 </div>
-<hr />
+
+
+
+
+
+
+
+@*<hr />
 @foreach (var juego in Model)
 {
     <div class="ml-5">
@@ -91,4 +98,119 @@
         </div>
     </div>
     <hr />
+}*@
+
+
+
+
+
+
+
+<hr />
+@foreach (var juego in Model)
+{
+<div class="row ml-2 mt-4">
+  
+        <div class="jd1 text-center">
+            <h3 class="lineas  " >Acerca de @juego.Nombre (@juego.Anio) </h3>
+            <div class="row justify-content-md-center">
+                <div class=" mt-2 linea-ver p-2">
+                    <p><i class="bi bi-people-fill "></i> @juego.NumJugadoresMin - @juego.NumJugadoresMax Jugadores  </p>
+                </div>
+                <div class="mt-2 linea-ver p-2">
+                    @if (juego.DuracionMin != juego.DuracionMax)
+                    {
+                        <p><i class="bi bi-clock-fill"></i> Duración: @juego.DuracionMin - @juego.DuracionMax Min.  </p>
+                    }
+                    else
+                    {
+                        <p><i class="bi bi-clock-fill"></i> Duración: @juego.DuracionMin Min.  </p>
+                    }
+
+                </div>
+                <div class="mt-2 p-2">
+                    <p><i class="bi bi-person-plus-fill"></i> Edad: @juego.Edad +</p>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <div class="row mt-2     ">
+            <div class="col-md-8 ">
+                <p>@juego.Descripcion</p>
+            </div>
+            <div class="col-md-4 text-center ">
+                <span>
+                    <img src="@juego.PortadaUrl" style="width:225px;height:auto" />
+                </span>
+            </div>
+
+        </div>
+
+</div>
+
+<div class="mt-2 row ml-2">
+
+
+    <div class="jd2">
+        <h3 class="lineasdos">Sobre el juego</h3>
+        <hr />
+    </div>
+
+
+
+    <div class="row mt-2">
+        <div class="col-md-8">
+            <div class="mt-1">
+                <p ><i class="bi bi-book-half"></i>
+                    Diseñador/a:
+                    @foreach (var disenador in juego.Disenadores)
+                    {
+                        <a asp-controller="Disenadores" asp-action="Jdmdisenador" asp-route-id="@disenador.Id">@disenador.Nombre</a>
+                    }
+                </p>
+
+            </div>
+            <div class="mt-2">
+                <p><i class="bi bi-book-fill"></i> Categoría: </p>
+                <ul>
+
+                    @foreach (var categoria in juego.Categorias)
+                    {
+                        <li>@categoria</li>
+                    }
+
+                </ul>
+
+            </div>
+            <div class="mt-2">
+                <p><i class="bi bi-book"></i> Mecánica: </p>
+                <ul>
+
+                    @foreach (var mecanica in juego.Mecanicas)
+                    {
+                        <li>@mecanica</li>
+                    }
+
+                </ul>
+            </div>
+            <div>
+                <a asp-controller="JuegosDeMesa" asp-action="Editar">Editar</a> | <a asp-controller="JuegosDeMesa" asp-action="Eliminar">Eliminar</a>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/@juego.Trailer"
+                    frameborder="0" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture"
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+
+</div>
+<hr />
 }

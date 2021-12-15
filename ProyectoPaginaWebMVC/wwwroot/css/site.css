@@ -155,9 +155,69 @@ body {
 }
 
 
+.jd1 {
+    width: 60%;
+    float: left;
+}
+
+.jd2 {
+    width: 40%;
+    float: left;
+}
 
 
+.lineas {
+    display: inline-block;
+    position: relative;
 
+}
+
+.lineas::after, .lineas::before{
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 1px;
+    background-color: #000000;
+    top: 0.6em;
+
+}
+
+    .lineas::before {
+        left: -140px;
+        opacity: .3;
+    }
+    .lineas::after {
+        right: -140px;
+        opacity: .3;
+    }
+
+
+.linea-ver {
+    display: inline-block;
+    position: relative;
+}
+
+    .linea-ver::after, linea-ver::before {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 35px;
+        background-color: #000000;
+        opacity: .3;
+        left:   100%;
+        top: 0.2em;
+    }
+
+/*linea-ver::before {
+    left: 140px;
+    opacity: .3;
+}
+
+linea-ver::after {
+    right: 140px;
+    opacity: .3;
+}
+ */
 
 
 

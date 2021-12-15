@@ -21,24 +21,29 @@
             <a class="navbar-brand" href="#">Juegos de Mesa en tú mesa</a>
         </div>
         <div class="div-dos">
-            <div class="row ">
+            <div class="row float-lg-right mr-5 mt-2">
                 @if (_signInManager.IsSignedIn(User))
                 {
-                    <div class="mt-2 mr-5">
+                    <div class="mr-4">
                         <h5>Hola, @User.Identity.Name</h5>
                     </div>
                 }
                 else
                 {
-                    <div class="mt-2 mr-5">
+                    <div class="mr-4">
                         <a asp-controller="Usuarios" asp-action="Registro"><i class="bi bi-person-square"></i> Registro</a>
+                    </div>
+                    <div class="">
                         <a asp-controller="Usuarios" asp-action="Login"><i class="bi bi-box-arrow-right "></i> Login</a>
                     </div>
                 }
+                @if (_signInManager.IsSignedIn(User))
+                {
+                    <div class="">
+                        <a asp-controller="Usuarios" asp-action="Logout"><i class="bi bi-box-arrow-left"></i> Salir</a>
+                    </div>
+                }
 
-                <div class="text-right mt-2 mr-5 float-right">
-                    <a href="#"><i class="bi bi-box-arrow-left"></i> Salir</a>
-                </div>
             </div>
 
         </div>
