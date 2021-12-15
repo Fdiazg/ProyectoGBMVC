@@ -1,8 +1,35 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@using Microsoft.AspNetCore.Identity
+
+@model List<JuegoDeMesaModel>
 
 <div class="text-center">
     <h1 class="display-4">Juegos de Mesa</h1>
 
 </div>
+
+
+@*@foreach (var imagen in Model)
+{
+    @foreach (var img in imagen.PortadaUrl)
+    {
+        <div class="col-md-4 text-center ">
+            <span>
+                <img src="@imagen.PortadaUrl" style="width:300px;height:auto" />
+            </span>
+        </div>
+    }
+}*@
+
+@*<div class="ro imgportada">
+    <div class="column">
+        <img alt="p1" src="~/img_portadas/cf6d2cb0-8492-4eb8-9cfe-03797954b646.jpg" />
+        <img alt="p2" src="~/img_portadas/2ed61f99-2a23-4de1-9f2a-90145f6c86d4.jpg" />
+        <img alt="p3" src="~/img_portadas/6907b09a-28a4-4813-a04a-fbc2a1b2fb96.jpg" />
+        <img alt="p4" src="~/img_portadas/bd5979ce-78d3-4045-be97-c2dfd985e2c5.jpg" />
+
+
+    </div>
+</div>*@

@@ -105,37 +105,39 @@
 
 
 
-
-<hr />
+<div class="">
+    <hr />
+</div>
 @foreach (var juego in Model)
 {
 <div class="row ml-2 mt-4">
   
-        <div class="jd1 text-center">
-            <h3 class="lineas  " >Acerca de @juego.Nombre (@juego.Anio) </h3>
-            <div class="row justify-content-md-center">
-                <div class=" mt-2 linea-ver p-2">
-                    <p><i class="bi bi-people-fill "></i> @juego.NumJugadoresMin - @juego.NumJugadoresMax Jugadores  </p>
-                </div>
-                <div class="mt-2 linea-ver p-2">
-                    @if (juego.DuracionMin != juego.DuracionMax)
-                    {
-                        <p><i class="bi bi-clock-fill"></i> Duración: @juego.DuracionMin - @juego.DuracionMax Min.  </p>
-                    }
-                    else
-                    {
-                        <p><i class="bi bi-clock-fill"></i> Duración: @juego.DuracionMin Min.  </p>
-                    }
+    <div class="jd1 text-center">
+        <h3 class="lineas">Acerca de @juego.Nombre (@juego.Anio) </h3>
 
-                </div>
-                <div class="mt-2 p-2">
-                    <p><i class="bi bi-person-plus-fill"></i> Edad: @juego.Edad +</p>
-                </div>
-
-
+        <div class="row justify-content-md-center">
+            <div class=" mt-2 linea-ver p-2">
+                <p><i class="bi bi-people-fill "></i> @juego.NumJugadoresMin - @juego.NumJugadoresMax Jugadores  </p>
+            </div>
+            <div class="mt-2 linea-ver p-2">
+                @if (juego.DuracionMin != juego.DuracionMax)
+                {
+                    <p><i class="bi bi-clock-fill"></i> Duración: @juego.DuracionMin - @juego.DuracionMax Min.  </p>
+                }
+                else
+                {
+                    <p><i class="bi bi-clock-fill"></i> Duración: @juego.DuracionMin Min.  </p>
+                }
 
             </div>
+            <div class="mt-2 p-2">
+                <p><i class="bi bi-person-plus-fill"></i> Edad: @juego.Edad +</p>
+            </div>
+
+
+
         </div>
+    </div>
 
         <div class="row mt-2     ">
             <div class="col-md-8 ">
@@ -143,7 +145,7 @@
             </div>
             <div class="col-md-4 text-center ">
                 <span>
-                    <img src="@juego.PortadaUrl" style="width:225px;height:auto" />
+                    <img src="@juego.PortadaUrl" style="width:300px;height:auto" />
                 </span>
             </div>
 
@@ -151,20 +153,23 @@
 
 </div>
 
-<div class="mt-2 row ml-2">
+<div class="mt-2 ml-2 row">
 
 
     <div class="jd2">
         <h3 class="lineasdos">Sobre el juego</h3>
         <hr />
     </div>
-
+    <div class="jd1">
+        <h3 class="lineasdos"></h3>
+    </div>
 
 
     <div class="row mt-2">
-        <div class="col-md-8">
+        <div class="col-md-7 ">
             <div class="mt-1">
-                <p ><i class="bi bi-book-half"></i>
+                <p>
+                    <i class="bi bi-book-half"></i>
                     Diseñador/a:
                     @foreach (var disenador in juego.Disenadores)
                     {
@@ -196,21 +201,44 @@
 
                 </ul>
             </div>
+
+            <div class="mt-1">
+                <p><i class="bi bi-book-half"></i>
+                    
+                    Editorial:
+                    @foreach (var editorial in juego.EditorialNombre)
+                    {
+
+                        @editorial;
+                    }
+                </p>
+
+            </div>
+
+
+
+
             <div>
-                <a asp-controller="JuegosDeMesa" asp-action="Editar">Editar</a> | <a asp-controller="JuegosDeMesa" asp-action="Eliminar">Eliminar</a>
+                <a asp-route-id="@juego.Id" asp-controller="JuegosDeMesa" asp-action="Editar">Editar</a> | <a asp-route-id="@juego.Id" asp-controller="JuegosDeMesa" asp-action="Eliminar">Eliminar</a>
             </div>
         </div>
 
 
-        <div class="col-md-4">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/@juego.Trailer"
-                    frameborder="0" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture"
-                    allowfullscreen>
-            </iframe>
+        <div class="col-md-5 ">
+            <div class="video">
+                <iframe width="480" height="270" src="https://www.youtube.com/embed/@juego.Trailer"
+                        frameborder="0" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+
         </div>
     </div>
 
 
 </div>
-<hr />
+<div class="linea-termino">
+    <hr/>
+</div>
+
 }

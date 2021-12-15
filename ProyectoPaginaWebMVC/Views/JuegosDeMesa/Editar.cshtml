@@ -1,0 +1,107 @@
+﻿@model JuegoDeMesaEdicionModel
+<h3>Editar @Model.Nombre</h3>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body ">
+                <form method="post" enctype="multipart/form-data" asp-controller="JuegosDeMesa" asp-action="Editar">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="PortadaUrl" />
+                    <div class="form-group">
+                        <label asp-for="Nombre"></label>
+                        <input asp-for="Nombre" type="text" class="form-control" autofocus />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Anio"></label>
+                        <input asp-for="Anio" type="number"  min="1900" class="form-control" />
+                        <span asp-validation-for="Anio" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Descripcion">Descripción</label>
+                        <textarea asp-for="Descripcion" rows="5" class="form-control"> </textarea>
+                        <span asp-validation-for="Descripcion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NumJugadoresMin">Número de jugadores mínimos</label>
+                        <input asp-for="NumJugadoresMin" type="number" min="1" max="10" class="form-control" />
+                        <span asp-validation-for="NumJugadoresMin" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NumJugadoresMax">Número de jugadores máximos</label>
+                        <input asp-for="NumJugadoresMax" type="number"  min="1" max="50" class="form-control" />
+                        <span asp-validation-for="NumJugadoresMax" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DuracionMin">Duración mínima (minutos)</label>
+                        <input asp-for="DuracionMin" type="number"  min="5" step="5" class="form-control" />
+                        <span asp-validation-for="DuracionMin" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DuracionMax">Duración máxima (minutos)</label>
+                        <input asp-for="DuracionMax" type="number"  min="5" step="5" class="form-control" />
+                        <span asp-validation-for="DuracionMax" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Edad">Edad mínima recomendada</label>
+                        <input asp-for="Edad" type="number"  min="4" max="100" class="form-control" />
+                        <span asp-validation-for="Edad" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Trailer">Video</label>
+                        <input asp-for="Trailer" type="text" class="form-control" />
+                        <span asp-validation-for="Trailer" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Portada</label>
+                        <input asp-for="Portada" class="form-control" type="file" />
+                    </div>
+                    <div class="form-group">
+                        <label>Diseñadores</label>
+                        <select class="form-control" asp-for="DisenadorId" asp-items="Model.Disenadores" multiple>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Categorias</label>
+                        <select class="form-control" asp-for="CategoriaId" asp-items="Model.Categorias" multiple>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Mecanicas</label>
+                        <select class="form-control" asp-for="MecanicaId" asp-items="Model.Mecanicas" multiple>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Editorial</label>
+                        <select class="form-control" asp-for="EditorialId" asp-items="Model.Editoriales">
+                            <option value="">--Seleccione--</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a asp-controller="JuegosDeMesa" asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body text-center">
+                <div>
+                    <img src="@Model.PortadaUrl" style="max-width : 80%" />
+
+                </div>
+                <div class="mt-4">
+                    <iframe width="480" height="270" src="https://www.youtube.com/embed/@Model.Trailer"
+                            frameborder="0" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+

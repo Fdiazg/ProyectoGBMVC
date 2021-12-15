@@ -54,5 +54,48 @@ namespace ProyectoPaginaWebMVC.Controllers
             }
             return View(model); 
         }
+
+        public async Task<IActionResult> Editar([FromRoute] int id)
+        {
+            //Buscar diseñador por Id
+            var modelo = await _repository.BuscarPorId(id);
+            return View(modelo);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Editar(JuegoDeMesaEdicionModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (model.Portada != null)
+                {
+                    await _almacenadorArchivos.EliminarArchivo(model.PortadaUrl, Carpeta);
+                    var nuevaUrl = await _almacenadorArchivos.GuardarArchivo(model.Portada, Carpeta);
+                    model.PortadaUrl = nuevaUrl;
+                }
+                //Guardar en la BD
+                await _repository.Actualizar(model);
+                return RedirectToAction("Index");
+
+            }
+
+            return View(model);
+        }
+
+        public async Task<IActionResult> Eliminar([FromRoute] int id)
+        {
+            var model = await _repository.BuscarPorId(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Eliminar(DisenadorEdicionModel model)
+        {
+            var entidad = await _repository.BuscarPorId(model.Id);
+            await _almacenadorArchivos.EliminarArchivo(entidad.PortadaUrl, Carpeta);
+            //Eliminar
+            await _repository.Eliminar(model.Id);
+            return RedirectToAction("Index");
+        }
     }
 }

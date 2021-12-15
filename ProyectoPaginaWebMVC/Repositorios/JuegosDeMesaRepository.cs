@@ -75,5 +75,42 @@ namespace ProyectoPaginaWebMVC.Repositorios
             var resultado = _mapper.Map<List<JuegoDeMesaModel>>(entidades);
             return resultado;
         }
+
+        public async Task<JuegoDeMesaEdicionModel> BuscarPorId(int id)
+        {
+            var entidad = await _context.JuegosDeMesa.FirstOrDefaultAsync(x => x.Id == id);
+            var model = _mapper.Map<JuegoDeMesaEdicionModel>(entidad);
+            return model;
+        }
+
+        public async Task Actualizar(JuegoDeMesaEdicionModel model)
+        {
+            var entidad = await _context.JuegosDeMesa.FirstOrDefaultAsync(x => x.Id == model.Id);
+
+            entidad.Nombre = model.Nombre;
+            entidad.Anio = (int)model.Anio;
+            entidad.Descripcion = model.Descripcion;
+            entidad.NumJugadoresMin = (int)model.NumJugadoresMin;
+            entidad.NumJugadoresMax = (int)model.NumJugadoresMax;
+            entidad.DuracionMin = (int)model.DuracionMin;
+            entidad.DuracionMax = (int)model.DuracionMax;
+            entidad.Edad = (int)model.Edad;
+            entidad.Trailer = model.Trailer;
+            entidad.PortadaUrl = model.PortadaUrl;
+
+
+
+           //entidad.JuegosDeMesaCategorias
+       
+           await _context.SaveChangesAsync();
+
+        }
+
+        public async Task Eliminar(int id)
+        {
+            var entidad = await _context.JuegosDeMesa.FirstOrDefaultAsync(x => x.Id == id);
+            _context.JuegosDeMesa.Remove(entidad);
+            await _context.SaveChangesAsync();
+        }
     }
 }

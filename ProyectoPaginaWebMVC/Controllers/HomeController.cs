@@ -20,6 +20,7 @@ namespace ProyectoPaginaWebMVC.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 

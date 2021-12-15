@@ -8,6 +8,9 @@ namespace ProyectoPaginaWebMVC.Repositorios
 {
     public interface IJuegosDeMesaRepository
     {
+        Task Actualizar(JuegoDeMesaEdicionModel model);
+        Task<JuegoDeMesaEdicionModel> BuscarPorId(int id);
+        Task Eliminar(int id);
         Task Guardar(JuegoDeMesaCreacionModel model);
         Task<JuegoDeMesaCreacionModel> NuevoJuegoCreacionModel();
         Task<List<JuegoDeMesaModel>> ObtenerTodo();

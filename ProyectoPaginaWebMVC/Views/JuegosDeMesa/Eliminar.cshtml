@@ -1,0 +1,12 @@
+﻿@model JuegoDeMesaEdicionModel
+<h3>Eliminar Juego de mesa</h3>
+<hr />
+<form method="post" asp-controller="JuegosDeMesa" asp-action="Eliminar">
+    <h5>Está seguro de eliminar el juego de mesa:</h5>
+    <h5>Id: @Model.Id</h5>
+    <h5>Nombre: @Model.Nombre</h5>
+    <input type="hidden" asp-for="Id" />
+    <br />
+    <button type="submit" class="btn btn-danger">Sí</button>
+    <a asp-controller="JuegosDeMesa" asp-action="Index" class="btn btn-secondary">No</a>
+</form>

@@ -31,15 +31,24 @@ namespace ProyectoPaginaWebMVC.Helpers
                 .ForMember(juego => juego.JuegosDeMesaMecanicas, opciones => opciones.MapFrom(MapJuegoDeMesaMecanica))
                 ;
             CreateMap<JuegoDeMesa, JuegoDeMesaModel>()
-                .ForMember(juegoDeMesaModel => juegoDeMesaModel.DisenadorNombre, opciones => opciones.MapFrom(juego=>juego.JuegosDeMesaDisenadores.FirstOrDefault().Disenador.Nombre))
+                .ForMember(juegoDeMesaModel => juegoDeMesaModel.DisenadorNombre, opciones => opciones.MapFrom(juego => juego.JuegosDeMesaDisenadores.FirstOrDefault().Disenador.Nombre))
                 .ForMember(juegoDeMesaModel => juegoDeMesaModel.CategoriaNombre, opciones => opciones.MapFrom(juego => juego.JuegosDeMesaCategorias.FirstOrDefault().Categoria.Nombre))
                 .ForMember(juegoDeMesaModel => juegoDeMesaModel.MecanicaNombre, opciones => opciones.MapFrom(juego => juego.JuegosDeMesaMecanicas.FirstOrDefault().Mecanica.Nombre))
-                .ForMember(juegoDeMesaModel => juegoDeMesaModel.Disenadores, opciones => opciones.MapFrom(juego => juego.JuegosDeMesaDisenadores.Select(x=> x.Disenador)))
+                .ForMember(juegoDeMesaModel => juegoDeMesaModel.Disenadores, opciones => opciones.MapFrom(juego => juego.JuegosDeMesaDisenadores.Select(x => x.Disenador)))
                 .ForMember(juegoDeMesaModel => juegoDeMesaModel.Categorias, opciones => opciones.MapFrom(juego => juego.JuegosDeMesaCategorias.Select(x => x.Categoria.Nombre)))
                 .ForMember(juegoDeMesaModel => juegoDeMesaModel.Mecanicas, opciones => opciones.MapFrom(juego => juego.JuegosDeMesaMecanicas.Select(x => x.Mecanica.Nombre)))
-
                 ;
+
+            CreateMap<JuegoDeMesa, JuegoDeMesaEdicionModel>();
+                //.ForMember(juegoDeMesaModel => juegoDeMesaModel.Disenadores, opciones => opciones.MapFrom(juego => juego.JuegosDeMesaDisenadores.Select(x => x.Disenador)))
+                //.ForMember(juegoDeMesaModel => juegoDeMesaModel.Categorias, opciones => opciones.MapFrom(juego => juego.JuegosDeMesaCategorias.Select(x => x.Categoria.Nombre)))
+                //.ForMember(juegoDeMesaModel => juegoDeMesaModel.Mecanicas, opciones => opciones.MapFrom(juego => juego.JuegosDeMesaMecanicas.Select(x => x.Mecanica.Nombre)))
+                //;
         }
+
+
+
+
 
         private List<JuegoDeMesaDisenador> MapJuegoDeMesaDisenador(JuegoDeMesaCreacionModel juegoDeMesaCreacionModel, JuegoDeMesa juego )
         {
@@ -86,5 +95,57 @@ namespace ProyectoPaginaWebMVC.Helpers
             }
             return resultado;
         }
+
+
+
+
+        //private List<JuegoDeMesaDisenador> MapJuegoDeMesaDisenadorEdicion(JuegoDeMesaEdicionModel juegoDeMesaEdicionModel, JuegoDeMesa juego)
+        //{
+        //    var resultado = new List<JuegoDeMesaDisenador>();
+        //    if (juegoDeMesaEdicionModel.DisenadorId == null)
+        //    {
+        //        return resultado;
+        //    }
+
+        //    foreach (var id in juegoDeMesaEdicionModel.DisenadorId)
+        //    {
+        //        resultado.Add(new JuegoDeMesaDisenador { DisenadorId = id });
+
+        //    }
+        //    return resultado;
+        //}
+        //private List<JuegoDeMesaCategoria> MapJuegoDeMesaCategoriaEdicion(JuegoDeMesaEdicionModel juegoDeMesaEdicionModel, JuegoDeMesa juego)
+        //{
+        //    var resultado = new List<JuegoDeMesaCategoria>();
+        //    if (juegoDeMesaEdicionModel.CategoriaId == null)
+        //    {
+        //        return resultado;
+        //    }
+
+        //    foreach (var id in juegoDeMesaEdicionModel.CategoriaId)
+        //    {
+        //        resultado.Add(new JuegoDeMesaCategoria { CategoriaId = id });
+        //    }
+
+        //    return resultado;
+        //}
+
+        //private List<JuegoDeMesaMecanica> MapJuegoDeMesaMecanicaEdicion(JuegoDeMesaEdicionModel juegoDeMesaEdicionModel, JuegoDeMesa juego)
+        //{
+        //    var resultado = new List<JuegoDeMesaMecanica>();
+        //    if (juegoDeMesaEdicionModel.MecanicaId == null)
+        //    {
+        //        return resultado;
+        //    }
+
+        //    foreach (var id in juegoDeMesaEdicionModel.MecanicaId)
+        //    {
+        //        resultado.Add(new JuegoDeMesaMecanica { MecanicaId = id });
+        //    }
+        //    return resultado;
+        //}
+
+
+
     }
 }
